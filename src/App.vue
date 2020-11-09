@@ -1,8 +1,6 @@
 <template>
-  <div>
-    app
-    <router-link to="">测试</router-link>
-    <router-link to="">测试2</router-link>
+  <div class="app">
+    我是登录页面
   </div>
   
 </template>
