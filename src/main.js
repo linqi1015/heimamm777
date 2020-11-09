@@ -12,7 +12,7 @@ Vue.use(ElementUI);
 // 导入抽取的路由
 // import router form './router/index'
 // 导入抽取的路由 如果导入的是index可以直接省略
-import router from './router/index'
+import router from '@/router'
 Vue.config.productionTip = false
 
 new Vue({
