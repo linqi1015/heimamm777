@@ -44,17 +44,16 @@
         </el-form-item>
         <el-form-item class="yonghu">
           <!-- 按钮 -->
-          <div class="xieyi">
-            <el-checkbox></el-checkbox>
-            <span>我已阅读并同意</span>
-            <el-link href="https://www.baidu.com" type="primary"
+            <el-checkbox v-model="form.checked">
+            我已阅读并同意
+            <el-link  type="primary" :underline="false"
               >用户协议</el-link
             >
             与
-            <el-link href="https://www.baidu.com" type="primary"
+            <el-link  type="primary" :underline="false"
               >隐私条款</el-link
             >
-          </div>
+            </el-checkbox>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" class="btn">登录</el-button>
@@ -77,7 +76,8 @@ export default {
       form: {
         name: "",
         password: "",
-        info: ""
+        info: "",
+        checked:false
       }
     };
   }
@@ -130,8 +130,16 @@ export default {
       width: 100%;
       height: 39px;
     }
-    .xieyi {
+    .el-checkbox{
       display: flex;
+      align-items: center;
+      .el-checkbox__input{
+        transform: translateY(2px);
+      }
+      .el-checkbox__label{
+        display: flex;
+        align-items: center;
+      }
     }
     .btn {
       width: 100%;
