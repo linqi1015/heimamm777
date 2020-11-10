@@ -26,13 +26,21 @@
             v-model="form.passwod"
           ></el-input>
         </el-form-item>
+        <!-- 验证码 -->
         <el-form-item>
-          <!-- 内容 -->
-          <el-input
-            prefix-icon="el-icon-key"
-            placeholder="请输入验证码"
-            v-model="form.info"
-          ></el-input>
+          <!-- layout布局容器 -->
+          <el-row>
+            <el-col :span="17">
+              <el-input
+                prefix-icon="el-icon-key"
+                placeholder="请输入验证码"
+                v-model="form.info"
+              ></el-input>
+            </el-col>
+            <el-col :span="7">
+              <img  class="code" src="../../assets/图层 6.png" alt="">
+            </el-col>
+          </el-row>
         </el-form-item>
         <el-form-item class="yonghu">
           <!-- 按钮 -->
@@ -117,7 +125,12 @@ export default {
         }
       }
     }
-    .xieyi{
+    .code{
+      display: block;
+      width: 100%;
+      height: 39px;
+    }
+    .xieyi {
       display: flex;
     }
     .btn {
