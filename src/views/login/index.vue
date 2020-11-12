@@ -55,12 +55,13 @@
           <el-button type="primary" @click="onSubmit">登录</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">注册</el-button>
+          <el-button type="primary" @click="showRegister">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
     <!-- 右侧盒子 -->
     <img src="@/assets/login_banner_ele.png" alt="" />
+    <registerCom ref="registerCom"></registerCom>
   </div>
 </template>
 
@@ -69,6 +70,8 @@
 import { userLogin, getCodeURL } from "../../../api/login";
 // 导入工具函数
 import { setToken } from "../../utils/token";
+// 导入注册组件
+import registerCom from "./register";
 export default {
   name: "login",
   data() {
@@ -131,6 +134,11 @@ export default {
       codeURl: getCodeURL()
     };
   },
+  // 注册组件
+  components: {
+    registerCom
+    // registerCom:registerCom
+  },
   methods: {
     onSubmit() {
       // $refs点出来的属性需要和el-form的ref一致
@@ -147,14 +155,14 @@ export default {
             // console.log(res);
             if (res.data.code === 200) {
               // 成功
-              this.$message.success('欢迎回来!')
+              this.$message.success("欢迎回来!");
               // 保存token
-              setToken(res.data.data.token)
+              setToken(res.data.data.token);
               // 去首页
-              this.$router.push('/index')
-            } else if(res.data.code === 202) {
+              this.$router.push("/index");
+            } else if (res.data.code === 202) {
               // 失败
-              this.$message.error(res.data.message)
+              this.$message.error(res.data.message);
             }
           });
         } else {
@@ -168,6 +176,12 @@ export default {
     },
     changeCode() {
       this.codeURl = getCodeURL() + `?${Date.now()}`;
+    },
+    // 显示注册
+    showRegister() {
+      console.log("this.$refs.registerCom:", this.$refs.registerCom);
+      // 修改是否显示的布尔值
+      this.$refs.registerCom.dialogFormVisible = true;
     }
   }
 };
