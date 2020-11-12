@@ -3,6 +3,8 @@ import Vue from 'vue'
 // 1.导入路由
 import VueRouter from 'vue-router'
 // 导入页面 index.vue可以省略
+import index from '@/views/index'
+// 导入页面 index.vue可以省略
 import login from '@/views/login'
 // 2.`use`一下
 Vue.use(VueRouter)
@@ -16,6 +18,10 @@ const routes = [
   {
     path: '/login',
     component:login
+  },
+  {
+    path: '/index',
+    component:index
   }
 
 ]
